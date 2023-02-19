@@ -12,7 +12,7 @@ FROM build AS publish
 RUN dotnet publish BaGet -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
-LABEL org.opencontainers.image.source="https://github.com/tstanciu/BaGet"
+LABEL org.opencontainers.image.source="https://github.com/loic-sharma/BaGet"
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "BaGet.dll"]
